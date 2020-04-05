@@ -5,20 +5,41 @@ namespace Lab_3
 {
     class Persona
     {
-        private string Rut;
-        private string Nombre;
-        private string Apellido;
-        private string Nacimiento;
-        private string Nacionalidad;// tengo que colocar public para que las demas clases las hereden.
-        // Atributos siempe private.
+        private string _rut;
+        private string _nombre;
+        private string _apellido;
+        private string _nacimiento;
+        private string _nacionalidad;
+        // Atributos siempre private. En el caso de herencia.
+        public string Nombre
+        {
+            get
+            {
+                return this._nombre;
+            }
+            set
+            {
+                if (value.Length <= 12)
+                {
+                    this._nombre = value;
+                }
+            }
+        }// GET Y SET
 
         public Persona(string rut, string nombre, string apellido, string nacimiento, string nacionalidad)
         {
-            this.Rut = rut;
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.Nacimiento = nacimiento;
-            this.Nacionalidad = nacionalidad;
+            this._rut = rut;
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this._nacimiento = nacimiento;
+            this._nacionalidad = nacionalidad;
+        }
+
+        Random rnd = new Random();
+        public int NumeroRandom()// Me ayuda a tener un numero random para que los nombres.
+        {
+            int numero = rnd.Next(0, 29);
+            return numero;
         }
 
         public List<string> nombres;
@@ -55,16 +76,16 @@ namespace Lab_3
         {
             nacimientos.Add(nacimiento);
         }
+        //Metodos para agregar los datos.
 
         public string CrearNombre(string nombre)
         {
-            foreach(string i in nombres) ;
+            //string nombre = " ";
+            foreach (string i in nombres)
             {
 
             }
             return null;
         }
-
-
     }
 }

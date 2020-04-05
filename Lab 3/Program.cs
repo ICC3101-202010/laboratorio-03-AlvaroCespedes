@@ -1,4 +1,6 @@
-﻿namespace Lab_3
+﻿using System;
+
+namespace Lab_3
 {
     class Program
     {
@@ -9,20 +11,17 @@
             string[] nombres = { "Juan", "Alvaro", "Carlos", "Jose", "Diego","Maria","Francisca","Catalina","Antonia","Antonio"
             ,"Monse","Raul","Pedro","Raimundo", "Nelson", "Sonia", "Cristobal","Ramon","James","Maximo", "Vicente", "Pablo","Martin", "Joching","Sebastian",
             "Luis","Francisco","Richi","Javiera","Fernanda"};
-
             string[] apellidos = {"Cespedes","Solis","Valle","Caceres","Lara","Lisboa","Arriagada","Araneda","Tan","Grandos","Borquez",
             "Perez","Risopatron","Del Valle","Pitt",};
-
             string[] nacionalidades = { "Chilena", "Peruana", "Colombiana", "Argentina" };
-
             string[] ruts = { "19591144-4", "823645-3", "24500-3", "12334523-2" };
-
             string[] nacimientos = { "03.04.1999", "02.04.2012" };
+            //Arrays de datos.
+
             foreach (string nombre in nombres)
             {
                 persona.AgregarNombre(nombre);
             }
-
             foreach (string apellido in apellidos)
             {
                 persona.AgregarApellido(apellido);
@@ -40,6 +39,17 @@
                 persona.AgregarNacimiento(nacimiento);
             }
             //Bubles para agregar a la listas
+
+            int numero = persona.NumeroRandom;
+
+            for (int i = 1; i == 8; i++)
+            {
+                Console.WriteLine("Empleado numero: ",
+                                  i,
+                                  "Nombre: ",
+                                  persona.nombres);
+
+            }
 
         }
     }
