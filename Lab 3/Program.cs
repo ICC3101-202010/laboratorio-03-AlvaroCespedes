@@ -74,6 +74,7 @@ namespace Lab_3
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine("Los Clientes son: ");
+
             int y = 1;
             while (y <= 16)
             {
@@ -97,6 +98,24 @@ namespace Lab_3
                 cliente.AgregarCliente(rut2); //Agrego un cliente a la lista clientes.
                 y++;
             }
+
+            //Parte de los productos.
+            string[] idProducto = new string[60];// CReo un array de 60 ojbetos. El Id del producto es unico. Me sirve para el stock.
+            //Para los productos se considero lo siguente.
+            //Existen 5 Marcas. (Ej: Sal lobos, Sal Cahuil)
+            //Solo hay 7 productos. (Ej: Sal, Azucar)
+            //Por simplicidad hay 10 precios distintos. 
+            //Solo 5 tipos. (Ej: Sal lobos Gruesa, Tallarines Italiani 5)
+            int z = 1;
+            while (z <= 61)
+            {
+                idProducto[z] = "Id"+z;
+                z++;
+            }
+            string[] marcaProducto = { "Marca1", "Marca2", "Marca3","Marca4","Marca5" };
+            string[] nombreProducto = { "Sal", "Azucar", "Aceite", "Arroz", "Tallarines","Salmon","Filete" };
+            string[] precioProducto = { "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10" };
+            string[] tipoProducto = { "T1", "T2", "T3", "T4", "T5" };
 
         }
     }
