@@ -2,18 +2,24 @@
 
 namespace Lab_3
 {
-    class Empleado : Persona
+    public class Empleado : Persona
     {
 
-        List<string> empleados; // Empleados --> Cajero.
-        public Empleado()//Construtor
-        {
-            empleados = new List<string>();
-        }
+        List<string> empleados1; // Empleados --> Cajero.
+
 
         public void AgregarEmpleado(string rut)
         {
-            empleados.Add(rut);
+            empleados1.Add(rut);
+        }
+        public Empleado()
+        {
+            empleados1 = new List<string>();
+        }
+        public Empleado(string nombre, string rut, string apellido, string nacimiento, string nacionalidad) 
+            : base(nombre, rut,apellido,nacimiento, nacionalidad)
+        {
+
         }
     }
 }

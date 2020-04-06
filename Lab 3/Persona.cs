@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lab_3
 {
-    class Persona // Nombres, Nacimiento, Nacionalidad y Apellidos se pueden repetir. Coincidencias. RUT UNICO. 
+    public class Persona // Nombres, Nacimiento, Nacionalidad y Apellidos se pueden repetir. Coincidencias. RUT UNICO. 
     {
         private string _rut;
         private string _nombre;
@@ -14,63 +14,7 @@ namespace Lab_3
 
 
 
-        public string Nombre// GET Y SET
-        {
-            get
-            {
-                return this._nombre;
-            }
-            set
-            {
-                _nombre = value;
-            }
-        }
-        public string Rut
-        {
-            get
-            {
-                return this._rut;
-            }
-            set
-            {
-                _rut = value;
-            }
-        }
-        public string Apellido
-        {
-            get
-            {
-                return this._apellido;
-            }
-            set
-            {
-                _apellido = value;
-            }
-        }
-        public string Nacimiento
-        {
-            get
-            {
-                return this._nacimiento;
-            }
-            set
-            {
-                _nacimiento = value;
-            }
-        }
-        public string Nacionalidad
-        {
-            get
-            {
-                return this._nacionalidad;
-            }
-            set
-            {
 
-                _nacionalidad = value;
-            }
-        }
-        //Encapsulando campos
 
         public Persona(string rut, string nombre, string apellido, string nacimiento, string nacionalidad)
         {
@@ -81,14 +25,38 @@ namespace Lab_3
             this._nacionalidad = nacionalidad;
         }
 
-
-
-
         public List<string> nombres;
         public List<string> apellidos;
         public List<string> nacionalidades;
         public List<string> ruts;
         public List<string> nacimientos;
+
+        public string Rut 
+        {
+            get { return _rut; }
+            set { _rut = value; }
+        }
+        public string Nombre
+        {
+            get { return _nombre; }
+            set { _nombre = value; }
+        }
+        public string Apellido
+        {
+            get { return _apellido; }
+            set { _apellido = value; }
+        }
+        public string Nacimiento
+        {
+            get { return _nacimiento; }
+            set { _nacimiento = value; }
+        }
+        public string Nacionalidad
+        {
+            get { return _nacionalidad; }
+            set { _nacionalidad = value; }
+        }
+
         public Persona()
         {
             nombres = new List<string>();
@@ -98,7 +66,7 @@ namespace Lab_3
             nacimientos = new List<string>();
         }// constructor de las listas
 
-
+        
 
         public void AgregarNombre(string nombre)
         {

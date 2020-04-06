@@ -18,5 +18,10 @@ namespace Lab_3
         public void Comprar()// Metodo comprar.
         {
         }
+        public Cliente(string nombre, string rut, string apellido, string nacimiento, string nacionalidad)
+            : base(nombre, rut, apellido, nacimiento, nacionalidad)
+        {
+
+        }
     }
 }
