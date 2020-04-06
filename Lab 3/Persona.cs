@@ -11,7 +11,10 @@ namespace Lab_3
         private string _nacimiento;
         private string _nacionalidad;
         // Atributos siempre private. En el caso de herencia.
-        public string Nombre
+
+
+
+        public string Nombre// GET Y SET
         {
             get
             {
@@ -19,12 +22,55 @@ namespace Lab_3
             }
             set
             {
-                if (value.Length <= 12)
-                {
-                    this._nombre = value;
-                }
+                _nombre = value;
             }
-        }// GET Y SET
+        }
+        public string Rut
+        {
+            get
+            {
+                return this._rut;
+            }
+            set
+            {
+                _rut = value;
+            }
+        }
+        public string Apellido
+        {
+            get
+            {
+                return this._apellido;
+            }
+            set
+            {
+                _apellido = value;
+            }
+        }
+        public string Nacimiento
+        {
+            get
+            {
+                return this._nacimiento;
+            }
+            set
+            {
+                _nacimiento = value;
+            }
+        }
+        public string Nacionalidad
+        {
+            get
+            {
+                return this._nacionalidad;
+            }
+            set
+            {
+
+                _nacionalidad = value;
+            }
+        }
+        //Encapsulando campos
 
         public Persona(string rut, string nombre, string apellido, string nacimiento, string nacionalidad)
         {
@@ -35,12 +81,8 @@ namespace Lab_3
             this._nacionalidad = nacionalidad;
         }
 
-        Random rnd = new Random();
-        public int NumeroRandom()// Me ayuda a tener un numero random para que los nombres.
-        {
-            int numero = rnd.Next(0, 29);
-            return numero;
-        }
+
+
 
         public List<string> nombres;
         public List<string> apellidos;
@@ -55,6 +97,8 @@ namespace Lab_3
             ruts = new List<string>();
             nacimientos = new List<string>();
         }// constructor de las listas
+
+
 
         public void AgregarNombre(string nombre)
         {
@@ -76,16 +120,14 @@ namespace Lab_3
         {
             nacimientos.Add(nacimiento);
         }
-        //Metodos para agregar los datos.
+        //Metodos para agregar los datos a la listas.
 
-        public string CrearNombre(string nombre)
+
+        // El rut debe ser unico.
+        public void QuitarRut(string rut)
         {
-            //string nombre = " ";
-            foreach (string i in nombres)
-            {
-
-            }
-            return null;
+            ruts.Remove(rut);
         }
+
     }
 }

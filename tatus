@@ -1,0 +1,258 @@
+[1mdiff --git a/Lab 3/Cliente.cs b/Lab 3/Cliente.cs[m
+[1mindex b24a21b..bde66b7 100644[m
+[1m--- a/Lab 3/Cliente.cs[m	
+[1m+++ b/Lab 3/Cliente.cs[m	
+[36m@@ -6,6 +6,17 @@[m [mnamespace Lab_3[m
+ {[m
+     class Cliente: Persona[m
+     {[m
+[31m-[m
+[32m+[m[32m        List<string> clientes;[m
+[32m+[m[32m        public Cliente()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            clientes = new List<string>();[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void AgregarCliente(string rut)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            clientes.Add(rut);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void Comprar()// Metodo comprar.[m
+[32m+[m[32m        {[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/Lab 3/Empleado.cs b/Lab 3/Empleado.cs[m
+[1mindex 4fe1cbf..56234e5 100644[m
+[1m--- a/Lab 3/Empleado.cs[m	
+[1m+++ b/Lab 3/Empleado.cs[m	
+[36m@@ -1,8 +1,19 @@[m
+[31m-﻿namespace Lab_3[m
+[32m+[m[32m﻿using System.Collections.Generic;[m
+[32m+[m
+[32m+[m[32mnamespace Lab_3[m
+ {[m
+     class Empleado : Persona[m
+     {[m
+ [m
+[32m+[m[32m        List<string> empleados;[m
+[32m+[m[32m        public Empleado()//Construtor[m
+[32m+[m[32m        {[m
+[32m+[m[32m            empleados = new List<string>();[m
+[32m+[m[32m        }[m
+ [m
+[32m+[m[32m        public void AgregarEmpleado(string rut)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            empleados.Add(rut);[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/Lab 3/Persona.cs b/Lab 3/Persona.cs[m
+[1mindex 7d9a87d..902aaf4 100644[m
+[1m--- a/Lab 3/Persona.cs[m	
+[1m+++ b/Lab 3/Persona.cs[m	
+[36m@@ -11,7 +11,10 @@[m [mnamespace Lab_3[m
+         private string _nacimiento;[m
+         private string _nacionalidad;[m
+         // Atributos siempre private. En el caso de herencia.[m
+[31m-        public string Nombre[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public string Nombre// GET Y SET[m
+         {[m
+             get[m
+             {[m
+[36m@@ -19,12 +22,55 @@[m [mnamespace Lab_3[m
+             }[m
+             set[m
+             {[m
+[31m-                if (value.Length <= 12)[m
+[31m-                {[m
+[31m-                    this._nombre = value;[m
+[31m-                }[m
+[32m+[m[32m                _nombre = value;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public string Rut[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get[m
+[32m+[m[32m            {[m
+[32m+[m[32m                return this._rut;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            set[m
+[32m+[m[32m            {[m
+[32m+[m[32m                _rut = value;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public string Apellido[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get[m
+[32m+[m[32m            {[m
+[32m+[m[32m                return this._apellido;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            set[m
+[32m+[m[32m            {[m
+[32m+[m[32m                _apellido = value;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public string Nacimiento[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get[m
+[32m+[m[32m            {[m
+[32m+[m[32m                return this._nacimiento;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            set[m
+[32m+[m[32m            {[m
+[32m+[m[32m                _nacimiento = value;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public string Nacionalidad[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get[m
+[32m+[m[32m            {[m
+[32m+[m[32m                return this._nacionalidad;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            set[m
+[32m+[m[32m            {[m
+[32m+[m
+[32m+[m[32m                _nacionalidad = value;[m
+             }[m
+[31m-        }// GET Y SET[m
+[32m+[m[32m        }[m
+[32m+[m[32m        //Encapsulando campos[m
+ [m
+         public Persona(string rut, string nombre, string apellido, string nacimiento, string nacionalidad)[m
+         {[m
+[36m@@ -35,12 +81,8 @@[m [mnamespace Lab_3[m
+             this._nacionalidad = nacionalidad;[m
+         }[m
+ [m
+[31m-        Random rnd = new Random();[m
+[31m-        public int NumeroRandom()// Me ayuda a tener un numero random para que los nombres.[m
+[31m-        {[m
+[31m-            int numero = rnd.Next(0, 29);[m
+[31m-            return numero;[m
+[31m-        }[m
+[32m+[m
+[32m+[m
+ [m
+         public List<string> nombres;[m
+         public List<string> apellidos;[m
+[36m@@ -56,6 +98,8 @@[m [mnamespace Lab_3[m
+             nacimientos = new List<string>();[m
+         }// constructor de las listas[m
+ [m
+[32m+[m
+[32m+[m
+         public void AgregarNombre(string nombre)[m
+         {[m
+             nombres.Add(nombre);[m
+[36m@@ -76,16 +120,14 @@[m [mnamespace Lab_3[m
+         {[m
+             nacimientos.Add(nacimiento);[m
+         }[m
+[31m-        //Metodos para agregar los datos.[m
+[32m+[m[32m        //Metodos para agregar los datos a la listas.[m
+ [m
+[31m-        public string CrearNombre(string nombre)[m
+[31m-        {[m
+[31m-            //string nombre = " ";[m
+[31m-            foreach (string i in nombres)[m
+[31m-            {[m
+ [m
+[31m-            }[m
+[31m-            return null;[m
+[32m+[m[32m        // El rut debe ser unico.[m
+[32m+[m[32m        public void QuitarRut(string rut)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ruts.Remove(rut);[m
+         }[m
+[32m+[m
+     }[m
+ }[m
+[1mdiff --git a/Lab 3/Program.cs b/Lab 3/Program.cs[m
+[1mindex 53a3fb6..1554383 100644[m
+[1m--- a/Lab 3/Program.cs[m	
+[1m+++ b/Lab 3/Program.cs[m	
+[36m@@ -14,10 +14,14 @@[m [mnamespace Lab_3[m
+             string[] apellidos = {"Cespedes","Solis","Valle","Caceres","Lara","Lisboa","Arriagada","Araneda","Tan","Grandos","Borquez",[m
+             "Perez","Risopatron","Del Valle","Pitt",};[m
+             string[] nacionalidades = { "Chilena", "Peruana", "Colombiana", "Argentina" };[m
+[31m-            string[] ruts = { "19591144-4", "823645-3", "24500-3", "12334523-2" };[m
+[31m-            string[] nacimientos = { "03.04.1999", "02.04.2012" };[m
+[32m+[m[32m            string[] ruts = { "rut1", "rut2", "rut3", "rut4","rut5","rut6","rut7","rut8","rut9","rut10","rut11","rut12","rut13","rut14","rut15","rut16","rut17",[m
+[32m+[m[32m            "rut18","rut19","rut20","rut21","rut22","rut23","rut24","rut25","rut26","rut27","rut28","rut29","rut30","rut31","rut32","rut33",[m
+[32m+[m[32m            "rut34","rut35","rut36","rut37","rut40","rut41","rut42","rut43","rut44","rut45","rut46","rut47","rut48","rut49","rut50"};// Rut Primary Key.[m
+[32m+[m[32m            string[] nacimientos = { "nacimiento1", "nacimiento2","nacimiento3","nacimiento4","nacimiento5","nacimiento6","nacimiento7",[m
+[32m+[m[32m            "nacimiento8","nacimiento9","nacimiento10"};[m
+             //Arrays de datos.[m
+ [m
+[32m+[m
+             foreach (string nombre in nombres)[m
+             {[m
+                 persona.AgregarNombre(nombre);[m
+[36m@@ -40,15 +44,58 @@[m [mnamespace Lab_3[m
+             }[m
+             //Bubles para agregar a la listas[m
+ [m
+[31m-            int numero = persona.NumeroRandom;[m
+[32m+[m[32m            string[] lista = { };[m
+[32m+[m[32m            int x = 1;[m
+[32m+[m
+[32m+[m[32m            while (x <= 8)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                Empleado empleado = new Empleado();[m
+[32m+[m[32m                Random rnd = new Random();[m
+[32m+[m[32m                int rut = rnd.Next(0, 28);[m
+[32m+[m[32m                int nombre = rnd.Next(0, 28);[m
+[32m+[m[32m                int apellido = rnd.Next(0, 15);[m
+[32m+[m[32m                int nacionalidad = rnd.Next(0, 4);[m
+[32m+[m[32m                int naciomiento = rnd.Next(0, 9);[m
+[32m+[m
+[32m+[m[32m                // Eliminar dicho rut de la lista rut, asi no se repite.[m
+[32m+[m[32m                string rut2 = persona.ruts[rut];// Me di una variable para el rut elegido.[m
+[32m+[m[32m                persona.QuitarRut(rut2);[m
+[32m+[m[32m                Console.WriteLine(" ");[m
+ [m
+[31m-            for (int i = 1; i == 8; i++)[m
+[32m+[m[32m                Console.WriteLine("El empleado numero " +  x + " de rut: " + rut2);// el rut debe ser unico.[m
+[32m+[m[32m                Console.WriteLine("Tiene un nombre y apellido: " + persona.nombres[nombre]+" " + persona.apellidos[apellido]);[m
+[32m+[m[32m                Console.WriteLine("Con una fecha de nacimiento y nacionalidad de: " + persona.nacimientos[naciomiento]+ " " + persona.nacionalidades[nacionalidad]);[m
+[32m+[m[32m                empleado.AgregarEmpleado(rut2);[m
+[32m+[m[32m                x++;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            Console.WriteLine(" ");[m
+[32m+[m[32m            Console.WriteLine(" ");[m
+[32m+[m[32m            Console.WriteLine(" ");[m
+[32m+[m[32m            Console.WriteLine(" ");[m
+[32m+[m[32m            Console.WriteLine("Los Clientes son: ");[m
+[32m+[m[32m            int y = 1;[m
+[32m+[m[32m            while (y <= 16)[m
+             {[m
+[31m-                Console.WriteLine("Empleado numero: ",[m
+[31m-                                  i,[m
+[31m-                                  "Nombre: ",[m
+[31m-                                  persona.nombres);[m
+[32m+[m[32m                Cliente cliente = new Cliente();[m
+[32m+[m[32m                Random rnd = new Random();[m
+[32m+[m[32m                int rut = rnd.Next(0, 29);[m
+[32m+[m[32m                int nombre = rnd.Next(0, 28);[m
+[32m+[m[32m                int apellido = rnd.Next(0, 15);[m
+[32m+[m[32m                int nacionalidad = rnd.Next(0, 4);[m
+[32m+[m[32m                int naciomiento = rnd.Next(0, 9);[m
+[32m+[m
+[32m+[m[32m                // Eliminar dicho rut de la lista rut, asi no se repite.[m
+[32m+[m[32m                string rut2 = persona.ruts[rut];[m
+[32m+[m[32m                persona.QuitarRut(rut2);[m
+[32m+[m[32m                Console.WriteLine(" ");[m
+[32m+[m
+ [m
+[32m+[m[32m                Console.WriteLine("El Cliente numero " + y + " de rut: " + rut2);// el rut debe ser unico.[m
+[32m+[m[32m                Console.WriteLine("Tiene un nombre y apellido: " + persona.nombres[nombre]+" " + persona.apellidos[apellido]);[m
+[32m+[m[32m                Console.WriteLine("Con una fecha de nacimiento y nacionalidad de: " + persona.nacimientos[naciomiento]+" "+ persona.nacionalidades[nacionalidad]);[m
+[32m+[m[32m                cliente.AgregarCliente(rut2); //Agrego un cliente a la lista clientes.[m
+[32m+[m[32m                y++;[m
+             }[m
+ [m
+         }[m
