@@ -5,7 +5,7 @@ namespace Lab_3
     class Empleado : Persona
     {
 
-        List<string> empleados;
+        List<string> empleados; // Empleados --> Cajero.
         public Empleado()//Construtor
         {
             empleados = new List<string>();

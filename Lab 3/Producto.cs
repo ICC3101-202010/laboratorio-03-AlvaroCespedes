@@ -29,7 +29,45 @@ namespace Lab_3
             this._id = id;
         }
 
-        List<string> nombres;
+        public List<string> nombresPro;
+        public List<string> preciosPro;
+        public List<string> marcasPro;
+        public List<string> tiposPro;
+        public List<string> idsPro;
+
+        public Producto()
+        {
+            nombresPro = new List<string>();
+            preciosPro = new List<string>();
+            marcasPro = new List<string>();
+            tiposPro = new List<string>();
+            idsPro = new List<string>();
+        }
+
+        public void AgregarNombrePro(string nombre)
+        {
+            nombresPro.Add(nombre);
+        }
+        public void AgregarPreciosPro(string precio)
+        {
+            preciosPro.Add(precio);
+        }
+        public void AgregarMarcasPro(string marca)
+        {
+            marcasPro.Add(marca);
+        }
+        public void AgregarTiposPro(string tipo)
+        {
+            tiposPro.Add(tipo);
+        }
+        public void AgregarIdPro(string id)
+        {
+            idsPro.Add(id);
+        }
+        public void QuitarId(string id)
+        {
+            idsPro.Remove(id);
+        }
 
 
 

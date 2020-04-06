@@ -44,11 +44,11 @@ namespace Lab_3
             }
             //Bubles para agregar a la listas
 
-            string[] lista = { };
             int x = 1;
-
-            while (x <= 8)
+            Console.WriteLine("Los empleados son: ");
+            while (x <= 7)
             {
+
                 Empleado empleado = new Empleado();
                 Random rnd = new Random();
                 int rut = rnd.Next(0, 28);
@@ -60,7 +60,7 @@ namespace Lab_3
                 // Eliminar dicho rut de la lista rut, asi no se repite.
                 string rut2 = persona.ruts[rut];// Me di una variable para el rut elegido.
                 persona.QuitarRut(rut2);
-                Console.WriteLine(" ");
+                //Console.WriteLine(" ");
 
                 Console.WriteLine("El empleado numero " +  x + " de rut: " + rut2);// el rut debe ser unico.
                 Console.WriteLine("Tiene un nombre y apellido: " + persona.nombres[nombre]+" " + persona.apellidos[apellido]);
@@ -72,11 +72,11 @@ namespace Lab_3
             Console.WriteLine(" ");
             Console.WriteLine(" ");
             Console.WriteLine(" ");
-            Console.WriteLine(" ");
+            Console.WriteLine("------------------------------------------------------------------------ ");
             Console.WriteLine("Los Clientes son: ");
 
             int y = 1;
-            while (y <= 16)
+            while (y <= 15)
             {
                 Cliente cliente = new Cliente();
                 Random rnd = new Random();
@@ -87,9 +87,9 @@ namespace Lab_3
                 int naciomiento = rnd.Next(0, 9);
 
                 // Eliminar dicho rut de la lista rut, asi no se repite.
-                string rut2 = persona.ruts[rut];
+                string rut2 = persona.ruts[rut]; //Tengo problemas. out of range.
                 persona.QuitarRut(rut2);
-                Console.WriteLine(" ");
+                //Console.WriteLine(" ");
 
 
                 Console.WriteLine("El Cliente numero " + y + " de rut: " + rut2);// el rut debe ser unico.
@@ -100,23 +100,76 @@ namespace Lab_3
             }
 
             //Parte de los productos.
-            string[] idProducto = new string[60];// CReo un array de 60 ojbetos. El Id del producto es unico. Me sirve para el stock.
+            string[] idProducto = new string[61];// CReo un array de 61 ojbetos. El Id del producto es unico. Me sirve para el stock.
             //Para los productos se considero lo siguente.
             //Existen 5 Marcas. (Ej: Sal lobos, Sal Cahuil)
             //Solo hay 7 productos. (Ej: Sal, Azucar)
             //Por simplicidad hay 10 precios distintos. 
             //Solo 5 tipos. (Ej: Sal lobos Gruesa, Tallarines Italiani 5)
-            int z = 1;
-            while (z <= 61)
+
+            Producto producto = new Producto();
+            int z = 0;
+            while (z <= 60)
             {
                 idProducto[z] = "Id"+z;
                 z++;
             }
-            string[] marcaProducto = { "Marca1", "Marca2", "Marca3","Marca4","Marca5" };
+            string[] marcaProducto = { "Carozzi", "Taliani", "Tucapel","Trattoria","Jumbo" };
             string[] nombreProducto = { "Sal", "Azucar", "Aceite", "Arroz", "Tallarines","Salmon","Filete" };
-            string[] precioProducto = { "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10" };
-            string[] tipoProducto = { "T1", "T2", "T3", "T4", "T5" };
+            string[] precioProducto = { "5.000", "6.999", "2.000", "4.000", "500", "237", "5.200", "15.000", "20.000", "1.000" };
+            string[] tipoProducto = { "Grueso/a", "5 Pulgadas", "Largo", "Corto", "7 pulgadas" };
 
+            //Agrego todo a las listas.
+            foreach(string id in idProducto)
+            {
+                producto.AgregarIdPro(id);
+            }
+            foreach(string nombre in nombreProducto)
+            {
+                producto.AgregarNombrePro(nombre);
+            }
+            foreach(string marca in marcaProducto)
+            {
+                producto.AgregarMarcasPro(marca);
+            }
+            foreach(string precio in precioProducto)
+            {
+                producto.AgregarPreciosPro(precio);
+            }
+            foreach(string tipo in tipoProducto)
+            {
+                producto.AgregarTiposPro(tipo);
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("Los productos son: ");
+
+            int x1 = 1;
+            while (x1 <= 30)
+            {
+                
+                Random rnd = new Random();
+                int id = rnd.Next(0, 20);// del uno al 20 para no tener problemas de Index.
+                int marca = rnd.Next(0, 5);
+                int nombre = rnd.Next(0, 7);
+                int precio = rnd.Next(0, 10);
+                int tipo = rnd.Next(0, 5);
+
+                string id2 = producto.idsPro[id];
+                producto.QuitarId(id2);
+                Console.WriteLine("El producto numero "+ x1);
+                Console.WriteLine("Su nombre, marca, tipo y precio Respestivamente: " + 
+                                    producto.nombresPro[nombre]+" "+
+                                    producto.marcasPro[marca]+" "+
+                                    producto.tiposPro[tipo]+" "+
+                                    producto.preciosPro[precio]);
+
+                x1++;
+            }
+            
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Lab_3
     class Cliente: Persona
     {
         List<string> clientes;
-        public Cliente()
+        public Cliente()//Constructor de las listas.
         {
             clientes = new List<string>();
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lab_3
 {
-    class Persona
+    class Persona // Nombres, Nacimiento, Nacionalidad y Apellidos se pueden repetir. Coincidencias. RUT UNICO. 
     {
         private string _rut;
         private string _nombre;
