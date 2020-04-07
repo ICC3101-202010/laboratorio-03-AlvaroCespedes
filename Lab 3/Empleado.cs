@@ -12,12 +12,6 @@ namespace Lab_3
         {
             sueldos.Add(sueldo);
         }
-
-
-        List<string> sueldos;
-        List<string> empleados1; // Empleados --> Cajero.
-
-
         public void AgregarEmpleado(string rut)
         {
             empleados1.Add(rut);
@@ -27,10 +21,17 @@ namespace Lab_3
             sueldos.Remove(sueldo);
         }
 
+
+        List<string> sueldos;
+        List<string> empleados1; // Empleados --> Cajero.
+
+
         public Empleado(string sueldo)
         {
             this._sueldo = sueldo;
         }
+
+
         public Empleado(string nombre, string rut, string apellido, string nacimiento, string nacionalidad) 
             : base(nombre, rut,apellido,nacimiento, nacionalidad)
         {

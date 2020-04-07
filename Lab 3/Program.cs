@@ -13,6 +13,7 @@ namespace Lab_3
             Empleado empleado = new Empleado();
             Cliente cliente = new Cliente();
             Producto producto = new Producto();
+
             while (opcion1 =="10")
             {
                 Console.WriteLine("Eligir una opcion");
@@ -220,7 +221,7 @@ namespace Lab_3
                         x++;
                     }
                     Console.WriteLine("Recuerde que el rut es unico");
-                    string eleccion = Console.ReadLine();
+                    string eleccion = Console.ReadLine();// Tengo que volverla a entero.
                     
 
                 }
