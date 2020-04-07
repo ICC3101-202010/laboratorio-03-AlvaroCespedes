@@ -7,13 +7,13 @@ namespace Lab_3
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido al menu");
-            Console.WriteLine("Por favor, aprete 9 y Enter");
+            Console.WriteLine("Por favor, aprete 10 y Enter");
             string opcion1 = Console.ReadLine();
             Persona persona = new Persona();
             Empleado empleado = new Empleado();
             Cliente cliente = new Cliente();
             Producto producto = new Producto();
-            while (opcion1 =="9")
+            while (opcion1 =="10")
             {
                 Console.WriteLine("Eligir una opcion");
                 Console.WriteLine("(1) Agregar Empleado");
@@ -22,9 +22,10 @@ namespace Lab_3
                 Console.WriteLine("(4) Ver informacion Empleados");
                 Console.WriteLine("(5) Ver informacion Productos");
                 Console.WriteLine("(6) Ver informacion Clientes");
-                Console.WriteLine("(7) Realizar una compra");
-                Console.WriteLine("(8) Ver 15 clientes, 7 empleados y 30 productos al azar.");
-                Console.WriteLine("(0)Para salir del programa");
+                Console.WriteLine("(7) Realizar una compra con un cliente");
+                Console.WriteLine("(8) Cambiar sueldos ");
+                Console.WriteLine("(9) Ver 15 clientes, 7 empleados y 30 productos al azar.");
+                Console.WriteLine("(0) Para salir del programa");
                 string opcion2 = Console.ReadLine();
 
                 if (opcion2 == "1")
@@ -49,8 +50,13 @@ namespace Lab_3
                     Console.WriteLine("Su nacionalidad: ");
                     string nacionalidad = Console.ReadLine();
                     empleado.AgregarNacionalidad(nacionalidad);
+
+                    Console.WriteLine("Agregar Sueldo del empleado: ");
+                    string sueldo = Console.ReadLine();
+                    empleado.AgregarSueldo(sueldo);
+
                     Console.WriteLine("Empleado Agregado con exito.");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
 
                     //foreach(string i in empleado.ruts)
                     //{
@@ -83,12 +89,16 @@ namespace Lab_3
                     Console.WriteLine("Agregue su Id, Recuerda que es unica: ");
                     string Id = Console.ReadLine();
                     producto.AgregarIdPro(Id);
+
+                    Console.WriteLine("Agregue el stok del producto: ");
+                    string stock = Console.ReadLine();
+                    producto.AgregarStock(stock);
+
                     Console.WriteLine("Prducto Agregado con exito.");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
                     string opcion3 = Console.ReadLine();
                     opcion2 = opcion3;
-
-                }
+                } // Se va agregando producto uno a uno. un "stock a stock"
 
                 if(opcion2 == "3")
                 {
@@ -112,8 +122,8 @@ namespace Lab_3
                     string nacionalidad = Console.ReadLine();
                     cliente.AgregarNacionalidad(nacionalidad);
 
-                    Console.WriteLine("Empleado Agregado con exito.");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Cliente Agregado con exito.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
                     string opcion3 = Console.ReadLine();
                     opcion2 = opcion3;
                 }
@@ -123,7 +133,6 @@ namespace Lab_3
         
                     int x = 0;
                     int lista = empleado.ruts.Count;
-                    Console.WriteLine(lista);
                     while (x < lista)
                     {
                         Console.WriteLine("Rut empleado: " + empleado.ruts[x]+ " "+
@@ -134,7 +143,7 @@ namespace Lab_3
                         x++;
                     }
                     Console.WriteLine("Informacion completada");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
 
                     string opcion3 = Console.ReadLine();
                     opcion2 = opcion3;
@@ -145,7 +154,6 @@ namespace Lab_3
                 {
                     int x = 0;
                     int lista = producto.idsPro.Count;
-                    Console.WriteLine(lista);
                     while (x < lista)
                     {
                         Console.WriteLine("Id producto: " + producto.idsPro[x] + " " +
@@ -156,7 +164,7 @@ namespace Lab_3
                         x++;
                     }
                     Console.WriteLine("Inforacion entregada con exito.");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
 
                     string opcion3 = Console.ReadLine();
                     opcion2 = opcion3;
@@ -166,7 +174,6 @@ namespace Lab_3
                 {
                     int x = 0;
                     int lista = cliente.ruts.Count;
-                    Console.WriteLine(lista);
                     while (x < lista)
                     {
                         Console.WriteLine("Rut Cliente: " + cliente.ruts[x] + " " +
@@ -177,7 +184,7 @@ namespace Lab_3
                         x++;
                     }
                     Console.WriteLine("Informacion completada");
-                    Console.WriteLine("Escriba lo que sea para volver al menu.");
+                    Console.WriteLine("Escriba lo que sea para volver al menu.(Q)");
 
                     string opcion3 = Console.ReadLine();
                     opcion2 = opcion3;
@@ -185,10 +192,40 @@ namespace Lab_3
 
                 if(opcion2 == "7")
                 {
+                    Console.WriteLine("Primero debe elegir el cliente que realizara la compra: ");
+                    foreach (string i in cliente.ruts)
+                    {
+                        int x = 0;
+                        int lista = cliente.ruts.Count;
+                        Console.WriteLine("Elegir numero del cliente");
+                        while (x < lista)
+                        {
+                            Console.WriteLine("Rut Cliente: " +"("+ (x + 1)+")" + i);
+                                               
+                            x++;
+                        }
 
+                        string cliente1 = Console.ReadLine();
+               
+                    }
                 }
 
                 if (opcion2 == "8")
+                {
+                    Console.WriteLine("¿A que empleado desea cambiar sueldo ?");
+                    int x = 1;
+                    foreach (string rut in empleado.ruts)
+                    {
+                        Console.WriteLine("opcion "+x+ rut);
+                        x++;
+                    }
+                    Console.WriteLine("Recuerde que el rut es unico");
+                    string eleccion = Console.ReadLine();
+                    
+
+                }
+
+                if (opcion2 == "9")
                 {
                     //Persona persona = new Persona(); // Creo el constructor
 
@@ -263,7 +300,7 @@ namespace Lab_3
                     {
                         Cliente cliente1 = new Cliente();
                         Random rnd = new Random();
-                        int rut = rnd.Next(0, 29);
+                        int rut = rnd.Next(0, 20);
                         int nombre = rnd.Next(0, 28);
                         int apellido = rnd.Next(0, 15);
                         int nacionalidad = rnd.Next(0, 4);
@@ -278,7 +315,6 @@ namespace Lab_3
                         Console.WriteLine("El Cliente numero " + y + " de rut: " + rut2);// el rut debe ser unico.
                         Console.WriteLine("Tiene un nombre y apellido: " + persona.nombres[nombre] + " " + persona.apellidos[apellido]);
                         Console.WriteLine("Con una fecha de nacimiento y nacionalidad de: " + persona.nacimientos[naciomiento] + " " + persona.nacionalidades[nacionalidad]);
-                        cliente1.AgregarCliente(rut2); //Agrego un cliente a la lista clientes.
                         y++;
                     }
 

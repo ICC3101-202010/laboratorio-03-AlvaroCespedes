@@ -10,17 +10,26 @@ namespace Lab_3
         public Cliente()//Constructor de las listas.
         {
             clientes = new List<string>();
+            carro = new List<string>();
         }
-        public void AgregarCliente(string rut)
-        {
-            clientes.Add(rut);
-        }
+        //public void AgregarCliente(string rut)
+        //{
+        //    clientes.Add(rut);
+        //}
         public void Comprar()// Metodo comprar.
         {
         }
         public Cliente(string nombre, string rut, string apellido, string nacimiento, string nacionalidad)
             : base(nombre, rut, apellido, nacimiento, nacionalidad)
         {
+
+        }
+
+        List<string> carro;
+        public void AgregarCarro(string id)
+        {
+            carro.Add(id);
+
 
         }
     }

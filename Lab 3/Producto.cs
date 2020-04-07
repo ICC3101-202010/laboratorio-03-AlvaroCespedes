@@ -11,6 +11,7 @@ namespace Lab_3
         private string _marca;
         private string _tipo;
         private string _id;
+        private string _stock;
 
         //Encapsulando campos --> Comando rapido.
         public string Nombre { get => _nombre; set => _nombre = value; }
@@ -18,6 +19,7 @@ namespace Lab_3
         public string Marca { get => _marca; set => _marca = value; }
         public string Tipo { get => _tipo; set => _tipo = value; }
         public string Id { get => _id; set => _id = value; }
+        public string Stock { get => _stock; set => _stock = value; }
 
         public Producto(string nombre, string precio, string marca, string stock, string tipo, string id)
         {
@@ -27,6 +29,7 @@ namespace Lab_3
             this._nombre = nombre;
             this._tipo = tipo;
             this._id = id;
+            this._stock = stock;
         }
 
         public List<string> nombresPro;
@@ -34,6 +37,7 @@ namespace Lab_3
         public List<string> marcasPro;
         public List<string> tiposPro;
         public List<string> idsPro;
+        public List<string> stockPro;
 
         public Producto()
         {
@@ -42,6 +46,7 @@ namespace Lab_3
             marcasPro = new List<string>();
             tiposPro = new List<string>();
             idsPro = new List<string>();
+            stockPro = new List<string>();
         }
 
         public void AgregarNombrePro(string nombre)
@@ -67,6 +72,14 @@ namespace Lab_3
         public void QuitarId(string id)
         {
             idsPro.Remove(id);
+        }
+        public void AgregarStock(string stock)
+        {
+            stockPro.Add(stock);
+        }
+        public void QuitarStock(string stock) // Cada vez ue se compre algo, se elemina uno
+        {
+            stockPro.Remove(stock);
         }
 
 
